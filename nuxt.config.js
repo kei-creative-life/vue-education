@@ -42,6 +42,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxtjs/axios",
+    'nuxt-fontawesome'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -55,5 +56,8 @@ export default {
   // SSR で使用可能
   privateRuntimeConfig: {
     serviceId: process.env.SERVICE_ID
-  }
+  },
+  fontawesome: {
+    component: 'FontAwesome',
+  },
 }
