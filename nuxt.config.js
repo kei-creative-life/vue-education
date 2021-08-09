@@ -21,11 +21,16 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/colors.css',
+    {
+      src: '~/node_modules/highlight.js/styles/github-dark.css',
+      lang: 'css',
+    },
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~plugins/vue-scrollto', mode: "client" }
+    { src: '~plugins/vue-scrollto', mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
