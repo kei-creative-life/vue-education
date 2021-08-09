@@ -5,6 +5,7 @@
       :class="operateSideWidth"
     >
       <div
+        @click="toggleSideBar"
         class="
           flex
           items-center
@@ -12,22 +13,24 @@
           text-white
           p-5
           border-b border-gray-500
+          cursor-pointer
         "
       >
         <h3 v-if="isOpen">All Lesson</h3>
-        <FontAwesome @click="toggleSideBar" :icon="faChevronRight" />
+        <FontAwesome :icon="faChevronRight" />
       </div>
       <SideBarContainer
         :sideBarProps="sideBarFirstProps"
         :isOpen="isOpen"
         sideBarHead="Javascriptを学ぼう"
+        iconPath="@/assets/images/js_icon.svg"
       />
       <SideBarContainer
         :sideBarProps="sideBarSecondProps"
         :isOpen="isOpen"
         sideBarHead="Vueを学ぼう"
       />
-      <SideBarContainer
+      <!-- <SideBarContainer
         :sideBarProps="sideBarSecondProps"
         :isOpen="isOpen"
         sideBarHead="Settings"
@@ -36,7 +39,7 @@
         :sideBarProps="sideBarSecondProps"
         :isOpen="isOpen"
         sideBarHead="Settings"
-      />
+      /> -->
     </div>
   </div>
 </template>
@@ -75,7 +78,7 @@ export default Vue.extend({
           navTitle: 'Javascriptの基礎を学ぼう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-blue-500',
-          isLabel: true,
+          isLabel: false,
           icon: faFileAlt,
           link: 'javascript-beginner',
         },

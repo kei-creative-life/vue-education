@@ -1,7 +1,11 @@
 <template>
   <div>
     <ul class="flex flex-col py-6 space-y-1">
-      <SideBarHead :sideBarHead="sideBarHead" :isOpen="isOpen" />
+      <SideBarHead
+        :sideBarHead="sideBarHead"
+        :isOpen="isOpen"
+        :iconPath="iconPath"
+      />
       <li v-for="(prop, index) in sideBarProps" :key="index">
         <SideBarLink
           :navTitle="prop.navTitle"
@@ -46,6 +50,9 @@ export default Vue.extend({
     },
     icon: {
       type: Object,
+    },
+    iconPath: {
+      type: String,
     },
   },
 })

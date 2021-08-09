@@ -1,16 +1,11 @@
 <template>
   <li class="px-5">
     <div class="flex flex-row items-center h-8">
-      <div
-        class="
-          flex
-          font-semibold
-          text-sm text-gray-300
-          my-4
-          font-sans
-          uppercase
-        "
-      >
+      <div class="flex font-semibold text-sm text-gray-300 my-4 font-sans">
+        <p class="w-5 h-5 mr-2">
+          <img v-if="isJsTitle" src="@/assets/images/js_icon.svg" />
+          <img v-else src="@/assets/images/vue_icon.svg" />
+        </p>
         <p v-if="isOpen">
           {{ sideBarHead }}
         </p>
@@ -30,6 +25,14 @@ export default Vue.extend({
     isOpen: {
       type: Boolean,
       default: true,
+    },
+    iconPath: {
+      type: String,
+    },
+  },
+  computed: {
+    isJsTitle() {
+      return this.sideBarHead === 'Javascriptを学ぼう'
     },
   },
 })

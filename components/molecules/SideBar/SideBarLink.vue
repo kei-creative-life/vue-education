@@ -16,7 +16,7 @@
           pr-6
         "
       >
-        <FontAwesome :icon="icon" :class="iconClass" />
+        <FontAwesome :icon="icon" :class="iconClass" class="cursor-pointer" />
         <span
           v-if="isOpen"
           class="ml-2 font-semibold text-sm tracking-wide truncate font-sans"

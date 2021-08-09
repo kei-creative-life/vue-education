@@ -3,6 +3,7 @@
     <div class="article__title">
       <h1 class="text-3xl font-bold">{{ article.title }}</h1>
     </div>
+    <p class="mt-5">{{ article.description }}</p>
     <div class="article__body" v-html="body"></div>
   </div>
 </template>
