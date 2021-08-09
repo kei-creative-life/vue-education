@@ -20,12 +20,12 @@
       <SideBarContainer
         :sideBarProps="sideBarFirstProps"
         :isOpen="isOpen"
-        sideBarHead="DashBoard"
+        sideBarHead="Javascriptを学ぼう"
       />
       <SideBarContainer
         :sideBarProps="sideBarSecondProps"
         :isOpen="isOpen"
-        sideBarHead="Settings"
+        sideBarHead="Vueを学ぼう"
       />
       <SideBarContainer
         :sideBarProps="sideBarSecondProps"
@@ -59,6 +59,7 @@ export interface sideBarProps {
   hoverStyle: string
   isLabel: boolean
   icon: any
+  link: string
 }
 
 import Vue from 'vue'
@@ -71,30 +72,33 @@ export default Vue.extend({
       isOpen: true,
       sideBarFirstProps: [
         {
-          navTitle: 'HOME',
+          navTitle: 'Javascriptの基礎を学ぼう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-blue-500',
           isLabel: true,
           icon: faFileAlt,
+          link: 'javascript-beginner',
         },
         {
-          navTitle: 'SETTING',
+          navTitle: 'DOM操作に慣れよう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-blue-500',
           isLabel: false,
           icon: faUserCog,
+          link: 'operate-dom',
         },
         {
-          navTitle: 'PROFILE',
+          navTitle: 'TODOアプリを作ろう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-blue-500',
           isLabel: false,
           icon: faFileAlt,
+          link: 'make-todo',
         },
       ] as sideBarProps[],
       sideBarSecondProps: [
         {
-          navTitle: 'HOME',
+          navTitle: 'Vueの基礎を学ぼう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-green-500',
           isLabel: true,
@@ -108,7 +112,7 @@ export default Vue.extend({
           icon: faBalanceScaleLeft,
         },
         {
-          navTitle: 'PROFILE',
+          navTitle: 'TODOアプリを作ろう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-green-500',
           isLabel: false,
@@ -123,10 +127,10 @@ export default Vue.extend({
     },
   },
   computed: {
-    operateSideWidth() {
-      return this.isOpen ? 'w-64' : 'w-20'
+    operateSideWidth(): string {
+      return this.isOpen ? 'w-64' : 'w-16'
     },
-    faChevronRight() {
+    faChevronRight(): any {
       return this.isOpen ? faChevronLeft : faChevronRight
     },
   },

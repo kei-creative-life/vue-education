@@ -10,6 +10,7 @@
           :icon="prop.icon"
           :isLabel="prop.isLabel"
           :isOpen="isOpen"
+          :link="prop.link"
         />
       </li>
     </ul>

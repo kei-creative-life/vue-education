@@ -1,0 +1,32 @@
+<template>
+  <LessonContainer
+    :articles="articles"
+    headTitle="Javascriptの基礎を学ぼう"
+    category="js-articles"
+  />
+</template>
+
+<script lang="ts">
+import axios from 'axios'
+import Vue from 'vue'
+import LessonContainer from '~/components/organism/Lesson/LessonContainer.vue'
+
+export default Vue.extend({
+  components: {
+    LessonContainer,
+  },
+  async asyncData({ $config }) {
+    const articles = (
+      await axios.get(
+        `https://${$config.serviceId}.microcms.io/api/v1/js-articles`,
+        {
+          headers: {
+            'X-API-KEY': $config.apiKey,
+          },
+        }
+      )
+    ).data.contents
+    return { articles }
+  },
+})
+</script>

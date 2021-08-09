@@ -4,75 +4,28 @@
       <div
         class="px-6 py-4 bg-white border-b border-gray-200 font-bold uppercase"
       >
-        講座の名前が入ります
+        {{ headTitle }}
       </div>
 
-      <!-- card body -->
       <ul class="p-6 bg-white">
-        <!-- content goes here -->
         <li
+          v-for="(article, index) in articles"
+          :key="index"
           class="
             mb-5
             py-3
             px-2
-            flex
-            justify-between
-            items-center
             border-b border-gray-200
             hover:bg-gray-200
             cursor-pointer
           "
         >
-          <h3>1章 ここにタイトルが入ります</h3>
-          <FontAwesome :icon="faChevronRight" />
-        </li>
-        <li
-          class="
-            mb-5
-            py-3
-            px-2
-            flex
-            justify-between
-            items-center
-            border-b border-gray-200
-            hover:bg-gray-200
-            cursor-pointer
-          "
-        >
-          <h3>1章 ここにタイトルが入ります</h3>
-          <FontAwesome :icon="faChevronRight" />
-        </li>
-        <li
-          class="
-            mb-5
-            py-3
-            px-2
-            flex
-            justify-between
-            items-center
-            border-b border-gray-200
-            hover:bg-gray-200
-            cursor-pointer
-          "
-        >
-          <h3>1章 ここにタイトルが入ります</h3>
-          <FontAwesome :icon="faChevronRight" />
-        </li>
-        <li
-          class="
-            mb-5
-            py-3
-            px-2
-            flex
-            justify-between
-            items-center
-            border-b border-gray-200
-            hover:bg-gray-200
-            cursor-pointer
-          "
-        >
-          <h3>1章 ここにタイトルが入ります</h3>
-          <FontAwesome :icon="faChevronRight" />
+          <NuxtLink :to="`/articles/javascript-beginner/${article.id}`">
+            <div class="flex items-center justify-between">
+              <h3>{{ `${index + 1}章 ${article.title}` }}</h3>
+              <FontAwesome :icon="faChevronRight" />
+            </div>
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -84,6 +37,16 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import Vue from 'vue'
 
 export default Vue.extend({
+  props: {
+    articles: {
+      type: Array,
+      default: () => [],
+    },
+    headTitle: {
+      type: String,
+      default: '',
+    },
+  },
   computed: {
     faChevronRight() {
       return faChevronRight
