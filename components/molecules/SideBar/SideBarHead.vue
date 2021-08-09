@@ -11,7 +11,9 @@
           uppercase
         "
       >
-        {{ sideBarHead }}
+        <p v-if="isOpen">
+          {{ sideBarHead }}
+        </p>
       </div>
     </div>
   </li>
@@ -24,6 +26,10 @@ export default Vue.extend({
     sideBarHead: {
       type: String,
       default: '',
+    },
+    isOpen: {
+      type: Boolean,
+      default: true,
     },
   },
 })

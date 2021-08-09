@@ -1,13 +1,15 @@
 <template>
   <div>
     <ul class="flex flex-col py-6 space-y-1">
-      <SideBarHead :sideBarHead="sideBarHead" />
+      <SideBarHead :sideBarHead="sideBarHead" :isOpen="isOpen" />
       <li v-for="(prop, index) in sideBarProps" :key="index">
         <SideBarLink
           :navTitle="prop.navTitle"
           :iconClass="prop.iconClass"
           :hoverStyle="prop.hoverStyle"
-          :icon="icon"
+          :icon="prop.icon"
+          :isLabel="prop.isLabel"
+          :isOpen="isOpen"
         />
       </li>
     </ul>
@@ -33,7 +35,17 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    icon: {},
+    isLabel: {
+      type: Boolean,
+      default: false,
+    },
+    isOpen: {
+      type: Boolean,
+      default: true,
+    },
+    icon: {
+      type: Object,
+    },
   },
 })
 </script>

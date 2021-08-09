@@ -2,7 +2,7 @@
   <li>
     <a
       href="#"
-      :class="colorClass"
+      :class="[colorClass, sideCloseStyle]"
       class="
         relative
         flex flex-row
@@ -18,10 +18,11 @@
     >
       <FontAwesome :icon="icon" :class="iconClass" />
       <span
+        v-if="isOpen"
         class="ml-2 font-semibold text-sm tracking-wide truncate font-sans"
         >{{ navTitle }}</span
       >
-      <Label labelName="New" :isLabel="isLabel" />
+      <Label v-if="isOpen" labelName="New" :isLabel="isLabel" />
     </a>
   </li>
 </template>
@@ -40,8 +41,8 @@ export default Vue.extend({
       default: '',
     },
     icon: {
-      type: String,
-      default: '',
+      type: Object,
+      default: {},
     },
     iconClass: {
       type: String,
@@ -49,6 +50,10 @@ export default Vue.extend({
     isLabel: {
       type: Boolean,
       default: false,
+    },
+    isOpen: {
+      type: Boolean,
+      default: true,
     },
     hoverStyle: {
       type: String,
@@ -58,6 +63,9 @@ export default Vue.extend({
   computed: {
     colorClass() {
       return this.hoverStyle
+    },
+    sideCloseStyle() {
+      return this.isOpen ? '' : 'inline-block'
     },
   },
 })
