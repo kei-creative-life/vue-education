@@ -1,7 +1,4 @@
 import axios from 'axios'
-require('dotenv').config();
-const { API_KEY, SERVICE_ID } = process.env;
-console.log(API_KEY)
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -53,7 +50,6 @@ export default {
   modules: [
     "@nuxtjs/axios",
     'nuxt-fontawesome',
-    '@nuxtjs/dotenv',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -72,10 +68,6 @@ export default {
           })
         })
     }
-  },
-  env: {
-    API_KEY,
-    SERVICE_ID
   },
   // SSR & CSR両方で使用可能
   publicRuntimeConfig: {
