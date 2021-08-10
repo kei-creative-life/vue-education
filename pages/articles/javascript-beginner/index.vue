@@ -15,13 +15,17 @@ export default Vue.extend({
   components: {
     LessonContainer,
   },
-  async asyncData() {
+  async asyncData({ $config }) {
+    console.log($config.apiKey)
     const articles = (
-      await axios.get(`https://vue-sducation.microcms.io/api/v1/js-articles`, {
-        headers: {
-          'X-API-KEY': '63b3918d-a340-41ca-8077-8d71f9a69143',
-        },
-      })
+      await axios.get(
+        `https://${$config.serviceId}.microcms.io/api/v1/js-articles`,
+        {
+          headers: {
+            'X-API-KEY': $config.apiKey,
+          },
+        }
+      )
     ).data.contents
     return { articles }
   },
