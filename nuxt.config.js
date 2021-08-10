@@ -51,7 +51,12 @@ export default {
   modules: [
     "@nuxtjs/axios",
     'nuxt-fontawesome',
+    '@nuxtjs/dotenv'
   ],
+  env: {
+    API_KEY: process.env.API_KEY,
+    SERVICE_ID: process.env.SERVICE_ID,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
