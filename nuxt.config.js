@@ -77,6 +77,7 @@ export default {
   },
   // SSR で使用可能
   privateRuntimeConfig: {
+    apiKey: process.env.API_KEY,
     serviceId: process.env.SERVICE_ID
   },
   fontawesome: {

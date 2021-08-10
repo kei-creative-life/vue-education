@@ -16,6 +16,7 @@ export default Vue.extend({
     LessonContainer,
   },
   async asyncData({ $config }) {
+    console.log($config.apiKey)
     const articles = (
       await axios.get(
         `https://${$config.serviceId}.microcms.io/api/v1/js-articles`,
