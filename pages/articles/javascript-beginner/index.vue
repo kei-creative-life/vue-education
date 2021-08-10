@@ -22,7 +22,7 @@ export default Vue.extend({
         `https://${$config.serviceId}.microcms.io/api/v1/js-articles`,
         {
           headers: {
-            'X-API-KEY': $config.apiKey,
+            'X-API-KEY': '63b3918d-a340-41ca-8077-8d71f9a69143',
           },
         }
       )
