@@ -63,7 +63,7 @@ export default {
     fallback: true,
     routes() {
       return axios
-        .get(`https://${SERVICE_ID}.microcms.io/api/v1/js-articles`, {
+        .get(`https://vue-sducation.microcms.io/api/v1/js-articles`, {
           headers: { 'X-API-KEY': "63b3918d-a340-41ca-8077-8d71f9a69143" }
         })
         .then((res) => {
