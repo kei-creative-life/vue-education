@@ -1,6 +1,7 @@
 import axios from 'axios'
 require('dotenv').config();
 const { API_KEY, SERVICE_ID } = process.env;
+console.log(API_KEY)
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -63,7 +64,7 @@ export default {
     routes() {
       return axios
         .get(`https://${SERVICE_ID}.microcms.io/api/v1/js-articles`, {
-          headers: { 'X-API-KEY': API_KEY }
+          headers: { 'X-API-KEY': "63b3918d-a340-41ca-8077-8d71f9a69143" }
         })
         .then((res) => {
           return res.data.contents.map((article) => {
