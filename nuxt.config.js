@@ -72,6 +72,10 @@ export default {
         })
     }
   },
+  env: {
+    API_KEY,
+    SERVICE_ID
+  },
   // SSR & CSR両方で使用可能
   publicRuntimeConfig: {
     apiKey: process.env.API_KEY,
