@@ -1,3 +1,6 @@
+import axios from 'axios'
+const { API_KEY, SERVICE_ID } = process.env;
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -52,6 +55,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  generate: {
+    fallback: true,
+    routes() {
+      return axios
+        .get(`https://${SERVICE_ID}.microcms.io/api/v1/js-articles`, {
+          headers: { 'X-API-KEY': API_KEY }
+        })
+        .then((res) => {
+          return res.data.contents.map((article) => {
+            return `/articles/javascript-beginner/${article.id}`
+          })
+        })
+    }
   },
   // SSR & CSR両方で使用可能
   publicRuntimeConfig: {

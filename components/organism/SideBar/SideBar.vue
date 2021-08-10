@@ -5,7 +5,6 @@
       :class="operateSideWidth"
     >
       <div
-        @click="toggleSideBar"
         class="
           flex
           items-center
@@ -16,8 +15,8 @@
           cursor-pointer
         "
       >
-        <h3 v-if="isOpen">All Lesson</h3>
-        <FontAwesome :icon="faChevronRight" />
+        <NuxtLink to="/articles"> <h3 v-if="isOpen">All Lesson</h3></NuxtLink>
+        <FontAwesome @click="toggleSideBar" :icon="faChevronRight" />
       </div>
       <SideBarContainer
         :sideBarProps="sideBarFirstProps"
@@ -77,7 +76,7 @@ export default Vue.extend({
         {
           navTitle: 'Javascriptの基礎を学ぼう',
           iconClass: 'inline-flex justify-center items-center ml-4',
-          hoverStyle: 'hover:border-blue-500',
+          hoverStyle: 'hover:border-yellow-400',
           isLabel: false,
           icon: faFileAlt,
           link: 'javascript-beginner',
@@ -85,7 +84,7 @@ export default Vue.extend({
         {
           navTitle: 'DOM操作に慣れよう',
           iconClass: 'inline-flex justify-center items-center ml-4',
-          hoverStyle: 'hover:border-blue-500',
+          hoverStyle: 'hover:border-yellow-400',
           isLabel: false,
           icon: faUserCog,
           link: 'operate-dom',
@@ -93,7 +92,7 @@ export default Vue.extend({
         {
           navTitle: 'TODOアプリを作ろう',
           iconClass: 'inline-flex justify-center items-center ml-4',
-          hoverStyle: 'hover:border-blue-500',
+          hoverStyle: 'hover:border-yellow-400',
           isLabel: false,
           icon: faFileAlt,
           link: 'make-todo',

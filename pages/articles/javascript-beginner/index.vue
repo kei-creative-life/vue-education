@@ -2,7 +2,7 @@
   <LessonContainer
     :articles="articles"
     headTitle="Javascriptの基礎を学ぼう"
-    category="js-articles"
+    category="javascript-beginner"
   />
 </template>
 

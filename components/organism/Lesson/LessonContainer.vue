@@ -1,6 +1,6 @@
 <template>
   <div class="w-full sm:px-6 lg:px-8 bg-gray-50">
-    <div class="mt-20 mx-auto shadow-md">
+    <div class="mt-10 mx-auto shadow-md">
       <div
         class="px-6 py-4 bg-white border-b border-gray-200 font-bold uppercase"
       >
@@ -20,7 +20,7 @@
             cursor-pointer
           "
         >
-          <NuxtLink :to="`/articles/javascript-beginner/${article.id}`">
+          <NuxtLink :to="`/articles/${category}/${article.id}`">
             <div class="flex items-center justify-between">
               <h3>{{ `${index + 1}章 ${article.title}` }}</h3>
               <FontAwesome :icon="faChevronRight" />
@@ -43,6 +43,10 @@ export default Vue.extend({
       default: () => [],
     },
     headTitle: {
+      type: String,
+      default: '',
+    },
+    category: {
       type: String,
       default: '',
     },
