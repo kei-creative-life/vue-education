@@ -18,6 +18,12 @@ import hljs from 'highlight.js'
 import LessonContainer from '~/components/organism/Lesson/LessonContainer.vue'
 import TOC from '~/components/organism/TOC.vue'
 
+export interface TOC {
+  text: string
+  id: string
+  name: string
+}
+
 export default Vue.extend({
   components: {
     LessonContainer,
@@ -37,7 +43,8 @@ export default Vue.extend({
 
     const $ = cheerio.load(article.body)
     const headings = $('h1, h2, h3').toArray()
-    const toc = headings.map((d) => {
+    const toc: TOC[] = headings.map((d: any) => {
+      console.log(d)
       return {
         text: d.children[0].data,
         id: d.attribs.id,
