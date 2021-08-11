@@ -1,5 +1,5 @@
 <template>
-  <LessonContainer />
+  <LessonContainer headTitle="TODOアプリを作ろう" category="make-todo" />
 </template>
 
 <script lang="ts">

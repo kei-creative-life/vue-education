@@ -25,7 +25,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/colors.css',
+    '@/assets/css/colors.scss',
+    '@/assets/css/article.scss',
     {
       src: '~/node_modules/highlight.js/styles/github-dark.css',
       lang: 'css',

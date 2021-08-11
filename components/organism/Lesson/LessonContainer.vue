@@ -7,7 +7,7 @@
         {{ headTitle }}
       </div>
 
-      <ul class="p-6 bg-white">
+      <ul v-if="articles.length != 0" class="p-6 bg-white">
         <li
           v-for="(article, index) in articles"
           :key="index"
@@ -27,6 +27,10 @@
             </div>
           </NuxtLink>
         </li>
+      </ul>
+
+      <ul v-else>
+        <li class="p-6">ただいま準備中です。</li>
       </ul>
     </div>
   </div>

@@ -4,41 +4,33 @@
       class="flex flex-col bg-gray-900 h-full shadow-lg"
       :class="operateSideWidth"
     >
-      <div
-        class="
-          flex
-          items-center
-          justify-between
-          text-white
-          p-5
-          border-b border-gray-500
-          cursor-pointer
-        "
-      >
-        <NuxtLink to="/articles"> <h3 v-if="isOpen">All Lesson</h3></NuxtLink>
-        <FontAwesome @click="toggleSideBar" :icon="faChevronRight" />
+      <div class="sticky top-0">
+        <div
+          class="
+            flex
+            items-center
+            text-white
+            p-5
+            border-b border-gray-500
+            cursor-pointer
+          "
+          :class="operatePosition"
+        >
+          <NuxtLink to="/articles"> <h3 v-if="isOpen">All Lesson</h3></NuxtLink>
+          <FontAwesome @click="toggleSideBar" :icon="faChevronRight" />
+        </div>
+        <SideBarContainer
+          :sideBarProps="sideBarFirstProps"
+          :isOpen="isOpen"
+          sideBarHead="Javascriptを学ぼう"
+          iconPath="@/assets/images/js_icon.svg"
+        />
+        <SideBarContainer
+          :sideBarProps="sideBarSecondProps"
+          :isOpen="isOpen"
+          sideBarHead="Vueを学ぼう"
+        />
       </div>
-      <SideBarContainer
-        :sideBarProps="sideBarFirstProps"
-        :isOpen="isOpen"
-        sideBarHead="Javascriptを学ぼう"
-        iconPath="@/assets/images/js_icon.svg"
-      />
-      <SideBarContainer
-        :sideBarProps="sideBarSecondProps"
-        :isOpen="isOpen"
-        sideBarHead="Vueを学ぼう"
-      />
-      <!-- <SideBarContainer
-        :sideBarProps="sideBarSecondProps"
-        :isOpen="isOpen"
-        sideBarHead="Settings"
-      />
-      <SideBarContainer
-        :sideBarProps="sideBarSecondProps"
-        :isOpen="isOpen"
-        sideBarHead="Settings"
-      /> -->
     </div>
   </div>
 </template>
@@ -103,7 +95,7 @@ export default Vue.extend({
           navTitle: 'Vueの基礎を学ぼう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-green-500',
-          isLabel: true,
+          isLabel: false,
           icon: faBacon,
         },
         {
@@ -134,6 +126,9 @@ export default Vue.extend({
     },
     faChevronRight(): any {
       return this.isOpen ? faChevronLeft : faChevronRight
+    },
+    operatePosition(): string {
+      return this.isOpen ? 'justify-between' : 'justify-center'
     },
   },
 })
