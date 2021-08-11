@@ -91,6 +91,9 @@ export default Vue.extend({
   border-left: solid 5px #7db4e6;
 }
 @media (min-width: 600px) {
+  .article__body pre {
+    margin: 15px 0;
+  }
   .article__body {
     & >>> h1 {
       font-size: 30px;

@@ -60,17 +60,6 @@ export default {
   },
   generate: {
     fallback: true,
-    // routes() {
-    //   return axios
-    //     .get(`https://vue-sducation.microcms.io/api/v1/js-articles`, {
-    //       headers: { 'X-API-KEY': "63b3918d-a340-41ca-8077-8d71f9a69143" }
-    //     })
-    //     .then((res) => {
-    //       return res.data.contents.map((article) => {
-    //         return `/articles/javascript-beginner/${article.id}`
-    //       })
-    //     })
-    // }
   },
   // SSR & CSR両方で使用可能
   publicRuntimeConfig: {
