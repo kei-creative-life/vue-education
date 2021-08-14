@@ -1,6 +1,6 @@
 <template>
   <ul class="paginate w-full my-20 mb-10">
-    <ul class="flex justify-center" v-if="filteredPage.length === 2">
+    <ul class="flex justify-center">
       <li
         class="paginate__inner text-center mx-5 px-5 py-3"
         v-for="(page, index) in filteredPage"
@@ -10,26 +10,17 @@
           class="paginate__inner_text"
           :to="`/articles/javascript-beginner/${page.id}`"
         >
-          <p class="text-center" v-if="index === 0">前の章に戻る</p>
-          <p class="text-center" v-else>次の章に進む</p>
-          {{ page.title }}</NuxtLink
-        >
-      </li>
-    </ul>
-    <ul v-else>
-      <li class="paginate__inner mx-auto text-center mx-5 px-5 py-3">
-        <NuxtLink
-          class="paginate__inner_text"
-          :to="`/articles/javascript-beginner/${filteredPage.id}`"
-        >
-          <p class="text-center" v-if="filteredPage.key === 'First'">
-            次の章に進む
-          </p>
-          <p class="text-center" v-if="filteredPage.key === 'Last'">
+          <p class="text-center" v-if="page.key !== 'First' && index === 0">
             前の章に戻る
           </p>
-          {{ filteredPage.title }}</NuxtLink
-        >
+          <p
+            class="text-center"
+            v-else-if="index === 1 || page.key === 'First'"
+          >
+            次の章に進む
+          </p>
+          {{ page.title }}
+        </NuxtLink>
       </li>
     </ul>
   </ul>
@@ -38,13 +29,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export interface pageObject {
-  id: string
-  title: string
-}
-
-export interface filteredPage {
-  key: string
+export interface PageObject {
+  key: string | null
   id: string
   title: string
 }
@@ -54,12 +40,13 @@ export default Vue.extend({
   props: {
     articles: {
       type: Array,
+      default: () => [],
     },
   },
   data() {
     return {
-      pageObject: [] as pageObject[],
-      filteredPage: [] as filteredPage[],
+      pageObject: [] as PageObject[],
+      filteredPage: [] as PageObject[],
     }
   },
   mounted() {
@@ -70,7 +57,7 @@ export default Vue.extend({
     transformArticles(): any {
       return this.articles.map((article: any) => {
         const { id, title } = article
-        return this.pageObject.push({ id: id, title: title })
+        return this.pageObject.push({ id: id, title: title, key: '' })
       })
     },
 
@@ -82,11 +69,11 @@ export default Vue.extend({
       this.pageObject.filter((page, index) => {
         if (page.id === path) {
           if (index === 0) {
-            this.filteredPage = this.pageObject[1]
-            this.filteredPage['key'] = 'First'
+            this.filteredPage.push(this.pageObject[1])
+            this.filteredPage[0]['key'] = 'First'
           } else if (this.pageObject.length - 1 === index) {
-            this.filteredPage = this.pageObject[index - 1]
-            this.filteredPage['key'] = 'Last'
+            this.filteredPage.push(this.pageObject[index - 1])
+            this.filteredPage[0]['key'] = 'Last'
           } else {
             this.filteredPage.push(
               this.pageObject[index - 1],
