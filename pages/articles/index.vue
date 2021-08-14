@@ -34,6 +34,7 @@ export default Vue.extend({
         }
       )
     ).data.contents
+    console.log(jsArticles)
 
     const jsDomArticles = (
       await axios.get(

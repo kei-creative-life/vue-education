@@ -43,36 +43,39 @@
       font-size: 30px;
       font-weight: bold;
       margin: 40px 0 16px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid var(--color-gray01);
       padding: 0.4em 0.5em;
-      color: #585a61;
-      background: #f4f4f4;
-      border-left: solid 5px #7db4e6;
-      border-bottom: solid 3px #d7d7d7;
+      color: var(--color-gray02);
+      background: var( --color-bg-gray02);
+      border-left: solid 5px var(--color-border-blue);
+      border-bottom: solid 3px var(--color-border-gray);
     }
 
     h3 {
       font-size: 24px;
       font-weight: bold;
       margin: 30px 0 12px;
+      color: var(--color-gray02);
     }
 
     h4 {
       font-size: 20px;
       font-weight: bold;
       margin: 24px 0 10px;
+      color: var(--color-gray02);
     }
 
     h5 {
       font-size: 16px;
       font-weight: bold;
       margin: 20px 0 6px;
+      color: var(--color-gray02);
     }
 
     p {
       line-height: 1.8;
       letter-spacing: 0.2px;
-      color: #585a61;
+      color: var(--color-gray02);
       font-size: 18px;
 
       code {

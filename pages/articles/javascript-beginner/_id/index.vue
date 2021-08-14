@@ -6,6 +6,7 @@
     <p class="mt-5">{{ article.description }}</p>
     <TOC :toc="toc" />
     <div class="article__body" v-html="body"></div>
+    <Paginate :articles="articles" />
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import hljs from 'highlight.js'
 
 import LessonContainer from '~/components/organism/Lesson/LessonContainer.vue'
 import TOC from '~/components/organism/TOC.vue'
+import Paginate from '~/components/organism/Paginate/Paginate.vue'
 
 export interface TOC {
   text: string
@@ -28,8 +30,22 @@ export default Vue.extend({
   components: {
     LessonContainer,
     TOC,
+    Paginate,
   },
   async asyncData({ params, $config }) {
+    const articles = (
+      await axios.get(
+        `https://${$config.serviceId}.microcms.io/api/v1/js-articles`,
+        {
+          headers: {
+            'X-API-KEY': $config.apiKey,
+          },
+        }
+      )
+    ).data.contents
+
+    console.log(articles)
+
     const article = (
       await axios.get(
         `https://${$config.serviceId}.microcms.io/api/v1/js-articles/${params.id}`,
@@ -44,7 +60,6 @@ export default Vue.extend({
     const $ = cheerio.load(article.body)
     const headings = $('h1, h2, h3').toArray()
     const toc: TOC[] = headings.map((d: any) => {
-      console.log(d)
       return {
         text: d.children[0].data,
         id: d.attribs.id,
@@ -66,6 +81,7 @@ export default Vue.extend({
     })
 
     return {
+      articles,
       article,
       body: $.html(),
       toc,
