@@ -7,6 +7,7 @@
     <TOC :toc="toc" />
     <div class="article__body" v-html="body"></div>
     <Paginate :articles="articles" />
+    <ScrollTop />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import hljs from 'highlight.js'
 import LessonContainer from '~/components/organism/Lesson/LessonContainer.vue'
 import TOC from '~/components/organism/TOC.vue'
 import Paginate from '~/components/organism/Paginate/Paginate.vue'
+import ScrollTop from '~/components/organism/ScrollTop.vue'
 
 export interface TOC {
   text: string
@@ -31,6 +33,7 @@ export default Vue.extend({
     LessonContainer,
     TOC,
     Paginate,
+    ScrollTop,
   },
   async asyncData({ params, $config }) {
     const articles = (

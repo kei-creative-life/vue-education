@@ -16,7 +16,9 @@
           "
           :class="operatePosition"
         >
-          <NuxtLink to="/articles"> <h3 v-if="isOpen">All Lesson</h3></NuxtLink>
+          <NuxtLink to="/articles">
+            <h3 v-if="isOpen">講座メニュー</h3></NuxtLink
+          >
           <FontAwesome @click="toggleSideBar" :icon="faChevronRight" />
         </div>
         <SideBarContainer

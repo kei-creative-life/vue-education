@@ -47,9 +47,6 @@ export default Vue.extend({
     ).data.contents
     return { jsArticles, jsDomArticles }
   },
-  // mounted() {
-  //   console.log(this.searchWord)
-  // },
   methods: {
     searchWord() {
       const query = location.search.replace(/\?\//, '')

@@ -84,10 +84,10 @@ export default Vue.extend({
     },
   },
   computed: {
-    faChevronRight() {
+    faChevronRight(): any {
       return faChevronRight
     },
-    faChevronUpDown() {
+    faChevronUpDown(): any {
       return this.menuOpen ? faChevronDown : faChevronUp
     },
   },
