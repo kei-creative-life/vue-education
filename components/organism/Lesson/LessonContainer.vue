@@ -36,7 +36,7 @@
         >
           <NuxtLink :to="`/articles/${category}/${article.id}`">
             <div class="flex items-center justify-between">
-              <h3>{{ `${index + 1}章 ${article.title}` }}</h3>
+              <h3>{{ `${article.title}` }}</h3>
               <FontAwesome :icon="faChevronRight" />
             </div>
           </NuxtLink>

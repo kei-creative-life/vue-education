@@ -10,6 +10,7 @@
             flex
             items-center
             text-white
+            h-20
             p-5
             border-b border-gray-500
             cursor-pointer

@@ -1,9 +1,18 @@
 <template>
-  <LessonContainer
-    :articles="articles"
-    headTitle="Javascriptの基礎を学ぼう"
-    category="javascript-beginner"
-  />
+  <div class="w-full bg-gray-50">
+    <div class="mx-8 py-3 mb-5">
+      <div class="bg-navy00 text-white p-2">講座の特徴</div>
+      <p class="py-2">
+        本講座ではVue.jsやReactなどのフレームワークやライブラリを触るために、最低限のJavascriptの基礎知識を学んでいきます。Javascriptの知識がないまま、VueやReactを触ると挫折してしまったり、
+        習得に時間がかかり非効率になってしまいます。本講座を通して、Javascriptの基礎を固めて、今後VueやReact学習を効率よく行うための準備をしていきましょう。
+      </p>
+    </div>
+    <LessonContainer
+      :articles="articles"
+      headTitle="Javascriptの基礎を学ぼう"
+      category="javascript-beginner"
+    />
+  </div>
 </template>
 
 <script lang="ts">
