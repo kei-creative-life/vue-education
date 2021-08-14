@@ -37,11 +37,9 @@
 
 <script lang="ts">
 import {
-  faBacon,
-  faBahai,
-  faBalanceScaleLeft,
-  faFileAlt,
-  faUserCog,
+  faSeedling,
+  faList,
+  faClipboardList,
   faChevronRight,
   faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons'
@@ -70,7 +68,7 @@ export default Vue.extend({
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-yellow-400',
           isLabel: false,
-          icon: faFileAlt,
+          icon: faSeedling,
           link: 'javascript-beginner',
         },
         {
@@ -78,7 +76,7 @@ export default Vue.extend({
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-yellow-400',
           isLabel: false,
-          icon: faUserCog,
+          icon: faList,
           link: 'operate-dom',
         },
         {
@@ -86,7 +84,7 @@ export default Vue.extend({
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-yellow-400',
           isLabel: false,
-          icon: faFileAlt,
+          icon: faClipboardList,
           link: 'make-todo',
         },
       ] as sideBarProps[],
@@ -96,21 +94,14 @@ export default Vue.extend({
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-green-500',
           isLabel: false,
-          icon: faBacon,
-        },
-        {
-          navTitle: 'SETTING',
-          iconClass: 'inline-flex justify-center items-center ml-4',
-          hoverStyle: 'hover:border-green-500',
-          isLabel: false,
-          icon: faBalanceScaleLeft,
+          icon: faSeedling,
         },
         {
           navTitle: 'TODOアプリを作ろう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-green-500',
           isLabel: false,
-          icon: faBahai,
+          icon: faClipboardList,
         },
       ] as sideBarProps[],
     }

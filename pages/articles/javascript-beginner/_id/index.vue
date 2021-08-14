@@ -44,8 +44,6 @@ export default Vue.extend({
       )
     ).data.contents
 
-    console.log(articles)
-
     const article = (
       await axios.get(
         `https://${$config.serviceId}.microcms.io/api/v1/js-articles/${params.id}`,
@@ -69,15 +67,13 @@ export default Vue.extend({
 
     $('pre code').each((_, elm) => {
       const res = hljs.highlightAuto($(elm).text())
-      console.log($(elm))
       $(elm).html(res.value)
       $(elm).addClass('hljs')
     })
 
     $('img').each((_, elm) => {
       $(elm).attr('class', 'lazyload')
-      $(elm).attr('data-src', elm.attribs.src)
-      $(elm).removeAttr('src')
+      $(elm).attr('src', elm.attribs.src)
     })
 
     return {

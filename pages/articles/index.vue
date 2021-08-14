@@ -34,7 +34,6 @@ export default Vue.extend({
         }
       )
     ).data.contents
-    console.log(jsArticles)
 
     const jsDomArticles = (
       await axios.get(
@@ -49,7 +48,21 @@ export default Vue.extend({
     return { jsArticles, jsDomArticles }
   },
   // mounted() {
-  //   console.log(this.$config.serviceId)
+  //   console.log(this.searchWord)
   // },
+  methods: {
+    searchWord() {
+      const query = location.search.replace(/\?\//, '')
+      const results = axios.get(
+        `https://${this.$config.serviceId}.microcms.io/api/v1/js-articles?q=${query}`,
+        {
+          headers: {
+            'X-API-KEY': this.$config.apiKey,
+          },
+        }
+      )
+      return results
+    },
+  },
 })
 </script>

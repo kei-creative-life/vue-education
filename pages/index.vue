@@ -47,8 +47,5 @@ export default Vue.extend({
     ).data.contents
     return { jsArticles, jsDomArticles }
   },
-  // mounted() {
-  //   console.log(this.$config.serviceId)
-  // },
 })
 </script>

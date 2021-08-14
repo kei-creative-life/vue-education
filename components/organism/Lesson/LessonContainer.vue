@@ -2,12 +2,26 @@
   <div class="w-full sm:px-6 lg:px-8 bg-gray-50">
     <div class="mt-10 mx-auto shadow-md">
       <div
-        class="px-6 py-4 bg-white border-b border-gray-200 font-bold uppercase"
+        class="
+          flex
+          justify-between
+          items-center
+          px-8
+          py-4
+          bg-white
+          border-b border-gray-200
+          font-bold
+        "
       >
-        {{ headTitle }}
+        <h2>{{ headTitle }}</h2>
+        <FontAwesome
+          :icon="faChevronUpDown"
+          @click="toggleMenu"
+          class="cursor-pointer"
+        />
       </div>
 
-      <ul v-if="articles.length != 0" class="p-6 bg-white">
+      <ul v-show="menuOpen" v-if="articles.length != 0" class="p-6 bg-white">
         <li
           v-for="(article, index) in articles"
           :key="index"
@@ -37,7 +51,11 @@
 </template>
 
 <script lang="ts">
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import {
+  faChevronRight,
+  faChevronUp,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons'
 import Vue from 'vue'
 
 export default Vue.extend({
@@ -55,9 +73,22 @@ export default Vue.extend({
       default: '',
     },
   },
+  data() {
+    return {
+      menuOpen: true,
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen
+    },
+  },
   computed: {
     faChevronRight() {
       return faChevronRight
+    },
+    faChevronUpDown() {
+      return this.menuOpen ? faChevronDown : faChevronUp
     },
   },
 })

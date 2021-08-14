@@ -101,7 +101,7 @@ export default Vue.extend({
       opacity: 0.8;
     }
     .paginate__inner_text {
-      color: var(--color-gray02);
+      color: var(--color-text-gray02);
     }
   }
 }
