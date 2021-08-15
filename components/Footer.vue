@@ -21,7 +21,7 @@ export default Vue.extend({})
     @apply max-w-screen-xl px-4 py-6 mx-auto overflow-hidden sm:px-6 lg:px-8;
 
     &--copy {
-      @apply text-base leading-6 text-center text-gray-400;
+      @apply text-sm lg:text-base leading-6 text-center text-gray-400;
     }
   }
 }

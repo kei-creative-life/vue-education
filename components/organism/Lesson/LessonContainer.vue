@@ -1,10 +1,10 @@
 <template>
   <div class="lesson">
     <div class="lesson__inner">
-      <div class="lesson__inner--title">
-        <h2>{{ headTitle }}</h2>
+      <div class="lesson__inner--header">
+        <h2 class="lesson__inner--title">{{ headTitle }}</h2>
         <FontAwesome
-          class="cursor-pointer"
+          class="lesson__inner--icons"
           :icon="faChevronUpDown"
           @click="toggleMenu"
         />
@@ -22,8 +22,13 @@
         >
           <NuxtLink :to="`/articles/${category}/${article.id}`">
             <div class="lesson__inner--menu">
-              <h3>{{ `${article.title}` }}</h3>
-              <FontAwesome :icon="faChevronRight" />
+              <h3 class="lesson__inner--menu--title">
+                {{ `${article.title}` }}
+              </h3>
+              <FontAwesome
+                class="lesson__inner--menu--icons"
+                :icon="faChevronRight"
+              />
             </div>
           </NuxtLink>
         </li>
@@ -74,7 +79,7 @@ export default Vue.extend({
       return faChevronRight
     },
     faChevronUpDown(): any {
-      return this.menuOpen ? faChevronDown : faChevronUp
+      return this.menuOpen ? faChevronUp : faChevronDown
     },
   },
 })
@@ -82,24 +87,32 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .lesson {
-  @apply w-full sm:px-6 lg:px-8 bg-gray-50;
+  @apply w-full px-8 bg-gray-50 mb-5;
 
   &__inner {
-    @apply mt-10 mx-auto shadow-md;
+    @apply mx-auto shadow-md;
 
-    &--title {
+    &--header {
       @apply flex
           justify-between
           items-center
-          px-8
+          lg:px-8 px-4
           py-4
           bg-white
           border-b border-gray-200
           font-bold;
     }
 
+    &--title {
+      @apply text-sm lg:text-xl;
+    }
+
+    &--icons {
+      @apply cursor-pointer;
+    }
+
     &--contents {
-      @apply p-6 bg-white;
+      @apply lg:p-6 p-4 bg-white;
     }
 
     &--lists {
@@ -112,7 +125,14 @@ export default Vue.extend({
     }
 
     &--menu {
-      @apply flex items-center justify-between px-2;
+      @apply flex items-center justify-between lg:px-2;
+
+      &--title {
+        @apply text-sm lg:text-xl;
+      }
+      &--icons {
+        @apply hidden lg:block;
+      }
     }
 
     &--ready {

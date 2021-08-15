@@ -93,7 +93,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .article-detail {
-  @apply bg-gray-50 p-5;
+  @apply bg-gray-50 p-5 w-full;
 
   &__title {
     @apply text-3xl font-bold;

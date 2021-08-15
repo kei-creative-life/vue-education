@@ -116,8 +116,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .sidebar {
-  @apply bg-gray-50 text-gray-800;
-
+  @apply hidden lg:block;
   &__inner {
     @apply flex flex-col bg-gray-900 h-full shadow-lg;
 

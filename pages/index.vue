@@ -58,7 +58,7 @@ export default Vue.extend({
 
   &__inner {
     &--title {
-      @apply text-3xl px-8 pt-3;
+      @apply text-3xl px-8 py-5;
     }
   }
 }

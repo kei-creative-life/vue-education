@@ -1,7 +1,7 @@
 <template>
   <div class="articles">
     <div class="articles__inner">
-      <h2 class="articles__inner--title">All Lesson</h2>
+      <h2 class="articles__inner--title">講座一覧</h2>
       <LessonContainer
         :articles="jsArticles"
         headTitle="Javascriptの基礎を学ぼう"
@@ -72,7 +72,7 @@ export default Vue.extend({
 
   &__inner {
     &--title {
-      @apply text-3xl px-8 pt-3;
+      @apply text-xl lg:text-3xl text-left px-8 py-5;
     }
   }
 }

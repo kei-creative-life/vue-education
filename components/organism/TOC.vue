@@ -2,7 +2,10 @@
   <div class="toc">
     <div class="toc__inner">
       <h4 class="toc__inner--title">
-        目次<span class="toc__inner--close" @click="toggleToc">閉じる</span>
+        目次
+        <span class="toc__inner--close" @click="toggleToc">
+          {{ operateTocText }}
+        </span>
       </h4>
       <ul class="toc__inner--lists" v-if="tocOpen">
         <li
@@ -36,6 +39,11 @@ export default Vue.extend({
   methods: {
     toggleToc() {
       this.tocOpen = !this.tocOpen
+    },
+  },
+  computed: {
+    operateTocText(): string {
+      return this.tocOpen ? '閉じる' : '開く'
     },
   },
 })

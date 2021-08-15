@@ -22,7 +22,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .layouts {
-  @apply flex flex-col min-h-screen;
+  @apply flex flex-col min-h-screen w-screen;
 
   &__main {
     @apply flex flex-1;
