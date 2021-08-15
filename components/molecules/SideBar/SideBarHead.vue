@@ -1,8 +1,8 @@
 <template>
-  <li class="px-5">
-    <div class="flex flex-row items-center h-8">
-      <div class="flex font-semibold text-sm text-gray-300 my-4 font-sans">
-        <p class="w-5 h-5 mr-2">
+  <li class="sidebar-head">
+    <div class="sidebar-head__inner">
+      <div class="sidebar-head__body">
+        <p class="sidebar-head__body--icons">
           <img v-if="isJsTitle" src="@/static/images/js_icon.svg" />
           <img v-else src="@/static/images/vue_icon.svg" />
         </p>
@@ -37,3 +37,21 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.sidebar-head {
+  @apply px-5;
+
+  &__inner {
+    @apply flex flex-row items-center h-8;
+
+    .sidebar-head__body {
+      @apply flex font-semibold text-sm text-gray-300 my-4 font-sans;
+
+      &--icons {
+        @apply w-5 h-5 mr-2;
+      }
+    }
+  }
+}
+</style>

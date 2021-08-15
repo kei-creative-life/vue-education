@@ -1,19 +1,5 @@
 <template>
-  <span
-    v-if="isLabel"
-    class="
-      px-2
-      py-0.5
-      ml-auto
-      text-xs
-      font-medium
-      tracking-wide
-      text-blue-500
-      bg-blue-100
-      rounded-full
-    "
-    >{{ labelName }}</span
-  >
+  <span class="label" v-if="isLabel">{{ labelName }}</span>
 </template>
 
 <script lang="ts">
@@ -31,3 +17,17 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.label {
+  @apply px-2
+      py-0.5
+      ml-auto
+      text-xs
+      font-medium
+      tracking-wide
+      text-blue-500
+      bg-blue-100
+      rounded-full;
+}
+</style>

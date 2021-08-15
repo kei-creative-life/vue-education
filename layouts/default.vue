@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="layouts">
     <Header />
-    <div class="flex flex-1">
+    <div class="layouts__main">
       <SideBar />
       <nuxt />
     </div>
@@ -19,3 +19,13 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.layouts {
+  @apply flex flex-col min-h-screen;
+
+  &__main {
+    @apply flex flex-1;
+  }
+}
+</style>

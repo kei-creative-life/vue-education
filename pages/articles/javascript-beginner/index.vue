@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full bg-gray-50">
-    <div class="mx-8 py-3 mb-5">
-      <div class="bg-navy00 text-white p-2">講座の特徴</div>
-      <p class="py-2">
+  <div class="article">
+    <div class="article__inner">
+      <div class="article__title">講座の特徴</div>
+      <p class="article__description">
         本講座ではVue.jsやReactなどのフレームワークやライブラリを触るために、最低限のJavascriptの基礎知識を学んでいきます。Javascriptの知識がないまま、VueやReactを触ると挫折してしまったり、
         習得に時間がかかり非効率になってしまいます。本講座を通して、Javascriptの基礎を固めて、今後VueやReact学習を効率よく行うための準備をしていきましょう。
       </p>
@@ -39,3 +39,21 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.article {
+  @apply w-full bg-gray-50;
+
+  &__inner {
+    @apply mx-8 py-3 mb-5;
+  }
+
+  &__title {
+    @apply bg-navy00 text-white p-2;
+  }
+
+  &__description {
+    @apply py-2;
+  }
+}
+</style>

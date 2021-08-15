@@ -1,7 +1,9 @@
 <template>
-  <div class="h-20 flex items-center justify-between px-5">
-    <h1 class="text-2xl font-bold">Front Academy</h1>
-    <!-- <SearchForm /> -->
+  <div class="header">
+    <div class="header__inner">
+      <h1 class="header__inner--title">Front Academy</h1>
+      <!-- <SearchForm /> -->
+    </div>
   </div>
 </template>
 
@@ -15,3 +17,15 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.header {
+  @apply h-20 flex items-center justify-between px-5;
+
+  &__inner {
+    &--title {
+      @apply text-2xl font-bold;
+    }
+  }
+}
+</style>

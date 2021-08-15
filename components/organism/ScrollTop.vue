@@ -1,10 +1,7 @@
 <template>
-  <ul class="fixed right-5 bottom-5 rounded-full bg-navy00 w-10 h-10">
-    <li
-      class="cursor-pointer flex items-center justify-center w-full h-full"
-      @click="scrollToTop"
-    >
-      <FontAwesome :icon="faChevronUp" class="text-white" />
+  <ul class="scroll-top">
+    <li class="scroll-top__inner" @click="scrollToTop">
+      <FontAwesome :icon="faChevronUp" class="scroll-top__icons" />
     </li>
   </ul>
 </template>
@@ -38,4 +35,16 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.scroll-top {
+  background-color: var(--color-bg-navy01);
+  @apply fixed right-5 bottom-5 rounded-full w-10 h-10;
+
+  &__inner {
+    @apply cursor-pointer flex items-center justify-center w-full h-full;
+  }
+
+  &__icons {
+    @apply text-white;
+  }
+}
 </style>

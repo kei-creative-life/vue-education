@@ -1,20 +1,23 @@
 <template>
-  <ul class="paginate w-full my-20 mb-10">
-    <ul class="flex justify-center">
+  <ul class="paginate">
+    <ul class="paginate__inner">
       <li
-        class="paginate__inner text-center mx-5 px-5 py-3"
+        class="paginate__lists"
         v-for="(page, index) in filteredPage"
         :key="index"
       >
         <NuxtLink
-          class="paginate__inner_text"
+          class="paginate__inner--text"
           :to="`/articles/javascript-beginner/${page.id}`"
         >
-          <p class="text-center" v-if="page.key !== 'First' && index === 0">
+          <p
+            class="paginate__inner--previous"
+            v-if="page.key !== 'First' && index === 0"
+          >
             前の章に戻る
           </p>
           <p
-            class="text-center"
+            class="paginate__inner--next"
             v-else-if="index === 1 || page.key === 'First'"
           >
             次の章に進む
@@ -91,17 +94,30 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .paginate {
-  .paginate__inner {
+  @apply w-full my-20 mb-10;
+
+  &__inner {
+    @apply flex justify-center;
+  }
+
+  &__lists {
     background-color: var(--color-bg-gray02);
     width: 300px;
     border-top: solid 5px var(--color-border-blue);
     border-bottom: solid 3px var(--color-border-gray);
+    @apply text-center mx-5 px-5 py-3;
 
     &:hover {
       opacity: 0.8;
     }
-    .paginate__inner_text {
+    &--text {
       color: var(--color-text-gray02);
+    }
+    &--previous {
+      @apply text-center;
+    }
+    &--next {
+      @apply text-center;
     }
   }
 }

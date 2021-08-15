@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <ul class="flex flex-col py-6 space-y-1">
-      <SideBarHead
-        :sideBarHead="sideBarHead"
+  <ul class="sidebar-container">
+    <SideBarHead
+      :sideBarHead="sideBarHead"
+      :isOpen="isOpen"
+      :iconPath="iconPath"
+    />
+    <li v-for="(prop, index) in sideBarProps" :key="index">
+      <SideBarLink
+        :navTitle="prop.navTitle"
+        :iconClass="prop.iconClass"
+        :hoverStyle="prop.hoverStyle"
+        :icon="prop.icon"
+        :isLabel="prop.isLabel"
         :isOpen="isOpen"
-        :iconPath="iconPath"
+        :link="prop.link"
       />
-      <li v-for="(prop, index) in sideBarProps" :key="index">
-        <SideBarLink
-          :navTitle="prop.navTitle"
-          :iconClass="prop.iconClass"
-          :hoverStyle="prop.hoverStyle"
-          :icon="prop.icon"
-          :isLabel="prop.isLabel"
-          :isOpen="isOpen"
-          :link="prop.link"
-        />
-      </li>
-    </ul>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">
@@ -57,3 +55,9 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.sidebar-container {
+  @apply flex flex-col py-6 space-y-1;
+}
+</style>

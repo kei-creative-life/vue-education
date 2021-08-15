@@ -1,25 +1,11 @@
 <template>
-  <div class="bg-gray-50 text-gray-800">
-    <div
-      class="flex flex-col bg-gray-900 h-full shadow-lg"
-      :class="operateSideWidth"
-    >
-      <div class="sticky top-0">
-        <div
-          class="
-            flex
-            items-center
-            text-white
-            h-20
-            p-5
-            border-b border-gray-500
-            cursor-pointer
-          "
-          :class="operatePosition"
-        >
+  <div class="sidebar">
+    <div class="sidebar__inner" :class="operateSideWidth">
+      <div class="sidebar__sticky">
+        <div class="sidebar__header" :class="operatePosition">
           <NuxtLink to="/articles">
-            <h3 v-if="isOpen">講座メニュー</h3></NuxtLink
-          >
+            <h3 v-if="isOpen">講座メニュー</h3>
+          </NuxtLink>
           <FontAwesome @click="toggleSideBar" :icon="faChevronRight" />
         </div>
         <SideBarContainer
@@ -127,3 +113,27 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.sidebar {
+  @apply bg-gray-50 text-gray-800;
+
+  &__inner {
+    @apply flex flex-col bg-gray-900 h-full shadow-lg;
+
+    .sidebar__sticky {
+      @apply sticky top-0;
+
+      .sidebar__header {
+        @apply flex
+            items-center
+            text-white
+            h-20
+            p-5
+            border-b border-gray-500
+            cursor-pointer;
+      }
+    }
+  }
+}
+</style>

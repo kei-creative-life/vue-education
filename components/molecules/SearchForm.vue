@@ -1,26 +1,13 @@
 <template>
-  <div class="relative text-gray-600">
+  <div class="search">
     <input
-      v-model="keyword"
+      class="search__input"
       type="search"
       name="search"
       placeholder="Search"
-      class="
-        bg-white
-        border border-gray-300
-        h-10
-        px-5
-        pr-10
-        rounded-full
-        text-sm
-        focus:outline-none
-      "
+      v-model="keyword"
     />
-    <button
-      @click="moveSearchPage"
-      type="submit"
-      class="absolute right-0 top-2/4 transform -translate-y-2/4 mr-4 w-6 h-6"
-    >
+    <button class="search__button" type="submit" @click="moveSearchPage">
       <FontAwesome :icon="faSearch" />
     </button>
   </div>
@@ -53,3 +40,23 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.search {
+  @apply relative text-gray-600;
+
+  &__inner {
+    @apply bg-white
+        border border-gray-300
+        h-10
+        px-5
+        pr-10
+        rounded-full
+        text-sm
+        focus:outline-none;
+  }
+  &__button {
+    @apply absolute right-0 top-2/4 transform -translate-y-2/4 mr-4 w-6 h-6;
+  }
+}
+</style>

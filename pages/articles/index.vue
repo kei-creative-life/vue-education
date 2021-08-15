@@ -1,16 +1,18 @@
 <template>
-  <div class="w-full bg-gray-50">
-    <h2 class="text-3xl px-8 pt-3">All Lesson</h2>
-    <LessonContainer
-      :articles="jsArticles"
-      headTitle="Javascriptの基礎を学ぼう"
-      category="javascript-beginner"
-    />
-    <LessonContainer
-      :articles="jsDomArticles"
-      headTitle="DOM操作に慣れよう"
-      category="operate-dom"
-    />
+  <div class="articles">
+    <div class="articles__inner">
+      <h2 class="articles__inner--title">All Lesson</h2>
+      <LessonContainer
+        :articles="jsArticles"
+        headTitle="Javascriptの基礎を学ぼう"
+        category="javascript-beginner"
+      />
+      <LessonContainer
+        :articles="jsDomArticles"
+        headTitle="DOM操作に慣れよう"
+        category="operate-dom"
+      />
+    </div>
   </div>
 </template>
 
@@ -63,3 +65,15 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.articles {
+  @apply w-full bg-gray-50;
+
+  &__inner {
+    &--title {
+      @apply text-3xl px-8 pt-3;
+    }
+  }
+}
+</style>

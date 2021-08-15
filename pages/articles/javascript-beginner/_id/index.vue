@@ -1,13 +1,15 @@
 <template>
-  <div class="article bg-gray-50 p-5">
-    <div class="article__title">
-      <h1 class="text-3xl font-bold">{{ article.title }}</h1>
+  <div class="article-detail">
+    <div class="article-detail__inner">
+      <h1 class="article-detail__title">
+        {{ article.title }}
+      </h1>
+      <p class="article-detail__description">{{ article.description }}</p>
+      <TOC :toc="toc" />
+      <div class="article-detail__body" v-html="body"></div>
+      <Paginate :articles="articles" />
+      <ScrollTop />
     </div>
-    <p class="mt-5">{{ article.description }}</p>
-    <TOC :toc="toc" />
-    <div class="article__body" v-html="body"></div>
-    <Paginate :articles="articles" />
-    <ScrollTop />
   </div>
 </template>
 
@@ -90,4 +92,15 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.article-detail {
+  @apply bg-gray-50 p-5;
+
+  &__title {
+    @apply text-3xl font-bold;
+  }
+
+  &__description {
+    @apply mt-5;
+  }
+}
 </style>
