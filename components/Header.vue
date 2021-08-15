@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <div class="header__inner">
-      <h1 class="header__inner--title">Front Academy</h1>
+      <h1 class="header__inner--title">
+        <NuxtLink to="/">Front Academy</NuxtLink>
+      </h1>
       <FontAwesome
         class="header__inner--icons"
         :icon="faMenuModal"

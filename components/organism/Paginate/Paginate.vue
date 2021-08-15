@@ -105,7 +105,7 @@ export default Vue.extend({
     width: 300px;
     border-top: solid 5px var(--color-border-blue);
     border-bottom: solid 3px var(--color-border-gray);
-    @apply text-center mx-5 px-5 py-3;
+    @apply text-center text-sm lg:text-base mx-5 px-5 py-3;
 
     &:hover {
       opacity: 0.8;

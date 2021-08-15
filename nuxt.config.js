@@ -10,7 +10,7 @@ export default {
   head: {
     title: 'vue-education',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
