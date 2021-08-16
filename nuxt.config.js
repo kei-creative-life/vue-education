@@ -75,4 +75,22 @@ export default {
   fontawesome: {
     component: 'FontAwesome',
   },
+  storybook: {
+    addons: [
+    ],
+    port: 5555,
+    decorators: [
+    ],
+    parameters: {
+      backgrounds: {
+        values: [
+          { name: "gray", value: "#ddd" }
+        ]
+      },
+      controls: {
+        expanded: true
+      },
+      layout: 'centered',
+    }
+  }
 }
