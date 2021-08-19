@@ -8,7 +8,7 @@
           :icon="icon"
         />
         <span class="sidebar-link__titles" v-if="isOpen">{{ navTitle }}</span>
-        <Label v-if="isOpen" labelName="New" :isLabel="isLabel" />
+        <Label v-if="isOpen" labelName="NEW" :isLabel="isLabel" />
       </span>
     </NuxtLink>
   </li>
