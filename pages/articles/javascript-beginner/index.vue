@@ -1,7 +1,7 @@
 <template>
   <div class="article">
     <!-- <ArticleDescription :descriptionProps="descriptionProps" /> -->
-    <div class="h-24"></div>
+    <!-- <div class="h-24"></div> -->
     <LessonContainer
       :articles="articles"
       headTitle="Javascriptの基礎を学ぼう"

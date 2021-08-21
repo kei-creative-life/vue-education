@@ -1,5 +1,5 @@
 <template>
-  <li class="sidebar-link">
+  <div class="sidebar-link">
     <NuxtLink :to="`/articles/${link}`">
       <span class="sidebar-link__inner" :class="[colorClass, sideCloseStyle]">
         <FontAwesome
@@ -11,7 +11,7 @@
         <Label v-if="isOpen" labelName="NEW" :isLabel="isLabel" />
       </span>
     </NuxtLink>
-  </li>
+  </div>
 </template>
 
 <script lang="ts">
