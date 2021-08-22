@@ -10,14 +10,6 @@
 import Vue from 'vue'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 export default Vue.extend({
-  created() {
-    // window.addEventListener('scroll', function () {
-    //   if (200 < window.scrollY) {
-    //     console.log('scroll!!')
-    //   } else {
-    //   }
-    // })
-  },
   methods: {
     scrollToTop() {
       window.scrollTo({

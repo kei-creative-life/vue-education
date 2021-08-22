@@ -1,10 +1,6 @@
 <template>
   <div v-show="visible">
-    <ul class="toc-icon">
-      <li class="toc-icon__inner">
-        <FontAwesome :icon="faList" @click="toggleToc" class="toc-icon__list" />
-      </li>
-    </ul>
+    <SmallTOCButton :icon="faList" :toggleToc="toggleToc" />
     <transition>
       <div class="small-toc" v-if="tocOpen">
         <div class="small-toc__inner">
@@ -15,6 +11,9 @@
               v-for="tocList in toc"
               :key="tocList.id"
             >
+              <span v-if="tocList.id === targetId"
+                ><FontAwesome :icon="faStar" />
+              </span>
               <n-link v-scroll-to="`#${tocList.id}`" to>
                 {{ tocList.text }}
               </n-link>
@@ -28,7 +27,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { faList } from '@fortawesome/free-solid-svg-icons'
+import { faList, faStar } from '@fortawesome/free-solid-svg-icons'
+import SmallTOCButton from '~/components/atoms/Button/SmallTOCButton.vue'
 
 export default Vue.extend({
   props: {
@@ -37,10 +37,15 @@ export default Vue.extend({
       default: () => [],
     },
   },
+  components: {
+    SmallTOCButton,
+  },
   data() {
     return {
       tocOpen: false,
       visible: false,
+      scrollY: null,
+      targetId: '' as String | null,
     }
   },
   // DOMが生成されるのはmountedのタイミング！
@@ -59,28 +64,34 @@ export default Vue.extend({
       } else if (scrollY < 90) {
         this.visible = !this.visible
       }
+      this.markingH2Title()
+    },
+    markingH2Title() {
+      let h2Titles = Array.from(document.getElementsByTagName('h2'))
+      let result = h2Titles.filter((h2Title) => {
+        return h2Title.offsetTop <= window.scrollY
+      })
+      if (window.scrollY > h2Titles[0].offsetTop) {
+        if (result.length === 1) {
+          this.targetId = h2Titles[0].getAttribute('id')
+        } else {
+          this.targetId = h2Titles[result.length - 1].getAttribute('id')
+        }
+      }
     },
   },
   computed: {
     faList(): any {
       return faList
     },
+    faStar(): any {
+      return faStar
+    },
   },
 })
 </script>
 
 <style lang="scss" scoped>
-.toc-icon {
-  @apply fixed right-5 bottom-24 rounded-full w-10 h-10 bg-black;
-  &__inner {
-    @apply cursor-pointer flex items-center justify-center w-full h-full;
-  }
-
-  &__list {
-    @apply text-white;
-  }
-}
-
 .v-enter-active,
 .v-leave-active {
   transform: translate(0px, 0px);
@@ -93,21 +104,14 @@ export default Vue.extend({
 }
 
 .small-toc {
-  @apply bottom-24;
+  @apply fixed bottom-24 right-5 my-10 py-10px;
   border: solid 2px var(--color-bg-navy01);
-  position: fixed;
-  right: 20px;
   background-color: var(--color-bg-gray02);
   border-radius: 5px;
-  margin: 40px 0;
-  padding: 10px 0;
   &__inner {
     &--title {
-      font-size: 20px;
       color: var(--color-text-gray02);
-      font-weight: 700;
-      margin: 0 0 10px;
-      padding: 0 25px;
+      @apply font-bold text-xl mb-10px px-25px;
     }
   }
   &__lists {
@@ -115,7 +119,7 @@ export default Vue.extend({
 
     li {
       color: var(--color-text-gray02);
-      font-size: 16px;
+      @apply text-base;
     }
     &-title {
       border-bottom: solid 2px var(--color-bg-navy01);
@@ -124,18 +128,14 @@ export default Vue.extend({
     }
 
     li.h2 {
-      font-size: 16px;
-      font-weight: 700;
-      padding-bottom: 10px;
+      @apply font-bold text-base pb-10px;
 
       &:hover {
         color: var(--color-text-sub);
       }
     }
     li.h3 {
-      font-size: 14px;
-      padding-bottom: 10px;
-      padding-left: 10px;
+      @apply text-sm pb-10px pl-10px;
 
       &:hover {
         color: var(--color-text-sub);
