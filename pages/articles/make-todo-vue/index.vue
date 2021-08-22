@@ -1,5 +1,5 @@
 <template>
-  <LessonContainer headTitle="Vueの基礎を学ぼう" category="" />
+  <LessonContainer headTitle="VueでTODOアプリを作ろう" category="" />
 </template>
 
 <script lang="ts">

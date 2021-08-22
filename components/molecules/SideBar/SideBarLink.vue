@@ -86,7 +86,6 @@ export default Vue.extend({
             font-semibold
             text-sm
             tracking-wide
-            truncate
             font-sans;
   }
 }

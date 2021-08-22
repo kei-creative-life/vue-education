@@ -12,7 +12,7 @@
               :key="tocList.id"
             >
               <span v-if="tocList.id === targetId"
-                ><FontAwesome :icon="faStar" />
+                ><FontAwesome :icon="faStar" class="small-toc__star" />
               </span>
               <n-link v-scroll-to="`#${tocList.id}`" to>
                 {{ tocList.text }}
@@ -113,6 +113,9 @@ export default Vue.extend({
       color: var(--color-text-gray02);
       @apply font-bold text-xl mb-10px px-25px;
     }
+  }
+  &__star {
+    color: var(--color-border-blue);
   }
   &__lists {
     padding: 6px 10px 14px 25px;

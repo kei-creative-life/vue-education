@@ -14,11 +14,11 @@
           sideBarHead="Javascriptを学ぼう"
           iconPath="@/assets/images/js_icon.svg"
         />
-        <!-- <SideBarContainer
+        <SideBarContainer
           :sideBarProps="sideBarSecondProps"
           :isOpen="isOpen"
           sideBarHead="Vueを学ぼう"
-        /> -->
+        />
       </div>
     </div>
   </div>
@@ -68,29 +68,31 @@ export default Vue.extend({
           icon: faList,
           link: 'operate-dom',
         },
-        // {
-        //   navTitle: 'TODOアプリを作ろう',
-        //   iconClass: 'inline-flex justify-center items-center ml-4',
-        //   hoverStyle: 'hover:border-yellow-400',
-        //   isLabel: true,
-        //   icon: faClipboardList,
-        //   link: 'make-todo',
-        // },
+        {
+          navTitle: '(準備中)TODOアプリを作ろう',
+          iconClass: 'inline-flex justify-center items-center ml-4',
+          hoverStyle: 'hover:border-yellow-400',
+          isLabel: false,
+          icon: faClipboardList,
+          link: 'make-todo',
+        },
       ] as sideBarProps[],
       sideBarSecondProps: [
         {
-          navTitle: 'Vueの基礎を学ぼう',
+          navTitle: '(準備中)Vueの基礎を学ぼう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-green-500',
-          isLabel: true,
+          isLabel: false,
           icon: faSeedling,
+          link: 'vue-beginner',
         },
         {
-          navTitle: 'TODOアプリを作ろう',
+          navTitle: '(準備中)TODOアプリを作ろう',
           iconClass: 'inline-flex justify-center items-center ml-4',
           hoverStyle: 'hover:border-green-500',
-          isLabel: true,
+          isLabel: false,
           icon: faClipboardList,
+          link: 'make-todo-vue',
         },
       ] as sideBarProps[],
     }
