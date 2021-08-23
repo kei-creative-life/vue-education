@@ -9,6 +9,7 @@
       <div class="article-detail__body" v-html="body"></div>
       <Paginate :articles="articles" />
       <ScrollTop />
+      <SmallTOC :toc="toc" />
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@ import hljs from 'highlight.js'
 
 import LessonContainer from '~/components/organism/Lesson/LessonContainer.vue'
 import TOC from '~/components/organism/TOC.vue'
+import SmallTOC from '~/components/organism/SmallTOC.vue'
 import Paginate from '~/components/organism/Paginate/Paginate.vue'
 import ScrollTop from '~/components/organism/ScrollTop.vue'
 
@@ -34,6 +36,7 @@ export default Vue.extend({
   components: {
     LessonContainer,
     TOC,
+    SmallTOC,
     Paginate,
     ScrollTop,
   },

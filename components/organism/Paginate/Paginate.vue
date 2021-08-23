@@ -65,6 +65,7 @@ export default Vue.extend({
     },
 
     filterPaginate() {
+      // TODO update path
       const path = location.pathname.replace(
         /\/articles\/javascript-beginner\//g,
         ''
